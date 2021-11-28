@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Home assignment</string>
+    <string name="title_activity_single_movie">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+</resources>
