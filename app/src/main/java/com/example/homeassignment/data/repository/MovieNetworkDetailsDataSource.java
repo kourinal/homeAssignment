@@ -26,7 +26,6 @@ public class MovieNetworkDetailsDataSource {
 
 
     public void fetchMovieDetails(int id){
-        //mNetworkState.postValue(NetworkState.LOADING);
         mNetworkState.postValue(new NetworkState(NetworkState.Status.RUNNING, "Running"));
         try{
             mCompositeDisposable.add(
@@ -35,9 +34,7 @@ public class MovieNetworkDetailsDataSource {
                             .subscribe(res->{
                                     mDownloadedMovieDetails.postValue(res);
                                     mNetworkState.postValue(new NetworkState(NetworkState.Status.SUCCESS, "Success"));
-                                    //mNetworkState.postValue(NetworkState.LOADED);
                                 }, err->{
-                                    //mNetworkState.postValue(NetworkState.FAILED);
                                     mNetworkState.postValue(new NetworkState(NetworkState.Status.FAILED, "Failed"));
                                     Log.e("MovieDetailsDataSource",err.getMessage());
                                 }

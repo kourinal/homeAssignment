@@ -12,6 +12,7 @@ public class NetworkState {
     public static final NetworkState LOADED = new NetworkState(Status.SUCCESS, "Success");
     public static final NetworkState LOADING = new NetworkState(Status.RUNNING, "Running");
     public static final NetworkState FAILED = new NetworkState(Status.FAILED, "Failed");
+    public static final NetworkState END_OF_LIST = new NetworkState(Status.FAILED, "Reached the end");
 
 
     private Status status;

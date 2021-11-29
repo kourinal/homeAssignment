@@ -43,8 +43,8 @@ public class SingleMovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_movie);
 
-        int movieID = getIntent().getIntExtra("id", 1);
-        MovieDbInterface movieDBInterface = MovieDbClient.getClient(movieID);
+        int movieID = getIntent().getIntExtra("id", 3);
+        MovieDbInterface movieDBInterface = MovieDbClient.getClient();
 
 
         mMovieDetailsRepository = new MovieDetailsRepository(movieDBInterface);
@@ -63,8 +63,7 @@ public class SingleMovieActivity extends AppCompatActivity {
             public void onChanged(NetworkState networkState) {
                 ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress_bar);
                 TextView txtError = (TextView) findViewById(R.id.txt_error);
-                //progressBar.setVisibility(View.GONE);
-                //txtError.setVisibility(View.GONE);
+
                 //TODO This is silly change this
                 switch(networkState.getStatus()){
                     case FAILED:

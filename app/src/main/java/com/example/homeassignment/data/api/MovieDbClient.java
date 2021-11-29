@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieDbClient{
 
-    final static String API_KEY = "2c46288716a18fb7aadcc2a801f3fc6b";
+    final static String API_KEY = "049e888ff2bc704da6a9721b095103fe";
     final static String BASE_URL = "https://api.themoviedb.org/3/";
 
     final static String POSTER_BASE_URL = "https://image.tmdb.org/t/p/w342";
@@ -34,7 +34,7 @@ public class MovieDbClient{
         return POSTER_BASE_URL;
     }
 
-    public static MovieDbInterface getClient(int id) {
+    public static MovieDbInterface getClient() {
         Interceptor requestInterceptor = new Interceptor(){
             @Override
             public Response intercept(Chain chain) throws IOException {

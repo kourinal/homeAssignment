@@ -19,7 +19,6 @@ public class SingleMovieViewModel extends ViewModel {
     public SingleMovieViewModel(int id, MovieDetailsRepository movieDetailRepository){
         mId = id;
         mMovieDetailsRepository = movieDetailRepository;
-        //mMovieDetailsRepository.fetchSingleMovieDetails(mId, compositeDisposable);
         mMovieDetails = mMovieDetailsRepository.fetchSingleMovieDetails(mId,compositeDisposable);
         mNetworkState = movieDetailRepository.getMovieDetailsNetworkState();
 

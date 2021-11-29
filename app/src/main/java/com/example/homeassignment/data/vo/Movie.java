@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Movie {
     private float page;
     @SerializedName("results")
-    ArrayList<MovieDetails> results = new ArrayList <MovieDetails>();
+    ArrayList<MovieDescription> results = new ArrayList <MovieDescription>();
     @SerializedName("total_pages")
     private float total_pages;
     @SerializedName("total_results")
@@ -16,7 +16,7 @@ public class Movie {
 
     // Getter Methods
 
-    public ArrayList<MovieDetails> getMovieList(){
+    public ArrayList<MovieDescription> getMovieList(){
         return results;
     }
 

@@ -7,17 +7,17 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.paging.PageKeyedDataSource;
 
 import com.example.homeassignment.data.api.MovieDbInterface;
-import com.example.homeassignment.data.vo.Movie;
+import com.example.homeassignment.data.vo.MovieDescription;
 import com.example.homeassignment.data.vo.MovieDetails;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MovieDataSource extends PageKeyedDataSource<Integer, MovieDetails> {
+public class MovieDataSource extends PageKeyedDataSource<Integer, MovieDescription> {
 
     private CompositeDisposable mMompositeDisposable;
     private MovieDbInterface apiService;
-    private MutableLiveData<NetworkState> mNetworkState;
+    private MutableLiveData<NetworkState> mNetworkState = new MutableLiveData();
     private int page = 1;
 
     public MovieDataSource(MovieDbInterface apiService, CompositeDisposable compositeDisposable){
@@ -27,7 +27,7 @@ public class MovieDataSource extends PageKeyedDataSource<Integer, MovieDetails> 
 
 
     @Override
-    public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, MovieDetails> callback) {
+    public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, MovieDescription> callback) {
         mNetworkState.postValue(NetworkState.LOADING);
 
         mMompositeDisposable.add(
@@ -46,7 +46,7 @@ public class MovieDataSource extends PageKeyedDataSource<Integer, MovieDetails> 
     }
 
     @Override
-    public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, MovieDetails> callback) {
+    public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, MovieDescription> callback) {
         mNetworkState.postValue(NetworkState.LOADING);
 
         mMompositeDisposable.add(
@@ -69,8 +69,12 @@ public class MovieDataSource extends PageKeyedDataSource<Integer, MovieDetails> 
 
     }
 
+    public MutableLiveData<NetworkState> getNetworkState(){
+        return mNetworkState;
+    }
+
     @Override
-    public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, MovieDetails> callback) {
+    public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, MovieDescription> callback) {
 
     }
 }

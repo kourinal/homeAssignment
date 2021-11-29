@@ -9,7 +9,7 @@ import com.example.homeassignment.data.vo.Movie;
 import io.reactivex.disposables.CompositeDisposable;
 
 public class MovieDataSourceFactory extends DataSource.Factory<Integer, Movie>{
-    MutableLiveData<MovieDataSource> mMovieListDataSource = new MutableLiveData<>();
+    public MutableLiveData<MovieDataSource> mMovieListDataSource = new MutableLiveData<>();
     MovieDbInterface apiService;
     CompositeDisposable mCompositeDisposable;
 
